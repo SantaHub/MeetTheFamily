@@ -7,7 +7,7 @@ mvn clean install
 ```
 # Run
 ```
-java -jar target\geektrust.jar <path_of_test_file>
+java -jar target/geektrust.jar <path_of_test_file>
 java -jar target/geektrust.jar src/main/resources/input.txt
 ```
 # Test
