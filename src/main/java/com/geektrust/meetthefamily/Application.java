@@ -1,19 +1,19 @@
 package com.geektrust.meetthefamily;
 
-import com.geektrust.meetthefamily.dao.FamilyTreeDao;
-import com.geektrust.meetthefamily.exception.FileException;
-import com.geektrust.meetthefamily.service.FamilyTreeService;
+
+import com.geektrust.meetthefamily.controller.FamilyTreeController;
+import com.geektrust.meetthefamily.exception.GeneralException;
 
 public class Application {
 
 	public static void main(String args[]) {
-		FamilyTreeService familyTreeService = new FamilyTreeService();
-		FamilyTreeDao familyTreeDao = new FamilyTreeDao();
-		try {
-			familyTreeDao.readQueriesFromFile();
 
-			familyTreeService.getQueriesFromFile();
-		} catch (FileException e) {
+//		String filePath = "D:\\eclipseWorkspace\\MeetTheFamily-meetthefamily\\src\\main\\resources\\input.txt";
+		FamilyTreeController familyTreeController = new FamilyTreeController();
+		try {
+			familyTreeController.runQueries(args[0]);
+//			familyTreeController.runQueries(filePath);
+		} catch (GeneralException e) {
 			System.out.println("Error Code : "+e.getErrorCode()+"\nError Message : "+e.getErrorMessage());
 		}
 	}

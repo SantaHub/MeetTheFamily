@@ -2,11 +2,12 @@ package com.geektrust.meetthefamily.Rules;
 
 import java.util.List;
 
-import com.geektrust.meetthefamily.constant.Gender;
 import com.geektrust.meetthefamily.model.Person;
 
-public class Son {
+public class Sibling {
 	public static List<Person> execute(Person person) {
-			return person.getChildren(Gender.MALE);
+		List<Person> siblings = person.getMother().getChildren();
+		siblings.remove(person);
+		return siblings;
 	}
 }

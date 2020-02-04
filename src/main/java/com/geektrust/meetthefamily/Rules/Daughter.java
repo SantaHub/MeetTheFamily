@@ -7,6 +7,6 @@ import com.geektrust.meetthefamily.model.Person;
 
 public class Daughter {
 	public static List<Person> execute(Person person) {	
-		return person.getSiblings(Gender.FEMALE);
+		return person.getChildren(Gender.FEMALE);
 	}
 }

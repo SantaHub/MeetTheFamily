@@ -16,4 +16,17 @@ public enum Relation {
 	private Relation(String value) {
 		this.value = value;
 	}
+	
+	public String getValue(Relation relation) {
+		return relation.value;
+	}
+	public static Relation valueEquals(String value) {
+		for(Relation relation : Relation.values()) {
+			if(relation.getValue(relation).equalsIgnoreCase(value)) {
+				return relation;
+			}
+		}
+		
+		return null;
+	}
 }

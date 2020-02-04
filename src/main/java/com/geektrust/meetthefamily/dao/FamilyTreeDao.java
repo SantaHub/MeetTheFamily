@@ -10,14 +10,15 @@ import com.geektrust.meetthefamily.exception.FileException;
 
 public class FamilyTreeDao {
 	
-	public List<String> readQueriesFromFile() {
+	public List<String> readQueriesFromFile(String filePath) {
 		File file ;  
 		FileReader reader;
 		BufferedReader br;
 		List<String> queries = new ArrayList<String>();
 		try {
 			
-			file = new File(getClass().getClassLoader().getResource("input.txt").getFile());  
+		    file = new File(filePath); 
+  
 			reader = new FileReader(file);
 			br = new BufferedReader(reader);
 			String line;
