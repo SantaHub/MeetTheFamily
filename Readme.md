@@ -15,6 +15,9 @@ Create test Commands of the format
 ADD_CHILD <MotherName> <ChildName> <GENDER>
 GET_RELATIONSHIP <Name> <RELATIONSHIP>
 ```
+# Sequence Diagram
+![](archDiagram/MeetTheFamilySequence.png)
+
 ### Supported Genders
 ```
 Male
