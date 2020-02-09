@@ -1,12 +1,12 @@
-package com.geektrust.meetthefamily.model;
+package com.geektrust.meetthefamily.queryhandler;
 
 import com.geektrust.meetthefamily.constant.Relation;
 
-public class RelationQuery {
+public class RelationQueryParameter implements Parameter {
 	String name;
 	Relation relation;
 	
-	public RelationQuery(String name, Relation relation){
+	public RelationQueryParameter(String name, Relation relation){
 		this.relation = relation;
 		this.name = name;
 	}

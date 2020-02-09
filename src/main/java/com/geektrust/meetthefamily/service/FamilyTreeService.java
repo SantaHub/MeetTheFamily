@@ -13,16 +13,16 @@ import com.geektrust.meetthefamily.Rules.PaternalUncle;
 import com.geektrust.meetthefamily.Rules.Sibling;
 import com.geektrust.meetthefamily.Rules.SisterInLaw;
 import com.geektrust.meetthefamily.Rules.Son;
-import com.geektrust.meetthefamily.constant.Command;
 import com.geektrust.meetthefamily.constant.Constant;
 import com.geektrust.meetthefamily.constant.Gender;
 import com.geektrust.meetthefamily.constant.Relation;
 import com.geektrust.meetthefamily.dao.FamilyTreeDao;
 import com.geektrust.meetthefamily.initializer.Initializer;
-import com.geektrust.meetthefamily.model.AddQuery;
 import com.geektrust.meetthefamily.model.Person;
-import com.geektrust.meetthefamily.model.Query;
-import com.geektrust.meetthefamily.model.RelationQuery;
+import com.geektrust.meetthefamily.queryhandler.AddQueryParameter;
+import com.geektrust.meetthefamily.queryhandler.Command;
+import com.geektrust.meetthefamily.queryhandler.Query;
+import com.geektrust.meetthefamily.queryhandler.RelationQueryParameter;
 
 public class FamilyTreeService {
 	Person queen;
@@ -32,7 +32,7 @@ public class FamilyTreeService {
 		this.queen = Initializer.getQueen();
 		this.familyTreeDao = new FamilyTreeDao();
 	}
-	
+
 	public List<String> getQueriesFromFile(String filePath){
 		return familyTreeDao.readQueriesFromFile(filePath);
 	}
@@ -46,8 +46,8 @@ public class FamilyTreeService {
 		return queryList;
 	}
 	public List<Query> executeQuery(List<String> queriesStrings){
-		RelationQuery relationQuery;
-		AddQuery addQuery;
+		RelationQueryParameter relationQuery;
+		AddQueryParameter AddQueryParameter;
 		Person person;
 		
 		List<Query> queries= processQueries(queriesStrings);
@@ -55,9 +55,9 @@ public class FamilyTreeService {
 		for(Query query : queries) {
 			switch(query.getCommand()) {
 			case ADD_CHILD :
-				addQuery = processAdd(query.getParameter());
-				person = findPerson(this.queen, addQuery.getMotherName());
-				Person child = new Person(addQuery.getChildName(), addQuery.getGender());
+				AddQueryParameter = processAdd(query.getParameter());
+				person = findPerson(this.queen, AddQueryParameter.getMotherName());
+				Person child = new Person(AddQueryParameter.getChildName(), AddQueryParameter.getGender());
 				person.addChild(child);
 				query.setResponse(Constant.CHILD_DONE);
 				break;
@@ -108,14 +108,14 @@ public class FamilyTreeService {
 		return response;
 	}
 	
-	public RelationQuery processRelation(String parameter) {
+	public RelationQueryParameter processRelation(String parameter) {
 		String[] splitterParameter = parameter.split(Constant.PARAMTER_SPLIT_REGEX, Constant.PARAMTER_SPLIT_SIZE);
-		return new RelationQuery(splitterParameter[Constant.RELATION_NAME_INDEX], Relation.valueEquals(splitterParameter[Constant.RELATION_TYPE_INDEX].toUpperCase()));
+		return new RelationQueryParameter(splitterParameter[Constant.RELATION_NAME_INDEX], Relation.valueEquals(splitterParameter[Constant.RELATION_TYPE_INDEX].toUpperCase()));
 	}
 	
-	public AddQuery processAdd(String parameter) {
+	public AddQueryParameter processAdd(String parameter) {
 		String[] splitterParameter = parameter.split(Constant.RELATIONSHIP_SPLIT_REGEX,Constant.RELATIONSHIP_SPLIT_SIZE);
-		return new AddQuery(splitterParameter[Constant.ADD_MOTHER_INDEX], splitterParameter[Constant.ADD_CHILD_INDEX], Gender.valueOf(splitterParameter[Constant.ADD_GENDER_INDEX].toUpperCase()));
+		return new AddQueryParameter(splitterParameter[Constant.ADD_MOTHER_INDEX], splitterParameter[Constant.ADD_CHILD_INDEX], Gender.valueOf(splitterParameter[Constant.ADD_GENDER_INDEX].toUpperCase()));
 	}
 	
 	public Person findPerson(Person person, String name) {

@@ -1,13 +1,11 @@
-package com.geektrust.meetthefamily.model;
-
-import com.geektrust.meetthefamily.constant.Command;
+package com.geektrust.meetthefamily.queryhandler;
 
 public class Query {
 	private Command command;
-	private String parameter;
+	private Parameter parameter;
 	private String response;
 	
-	public Query(Command command, String parameter) {
+	public Query(Command command, Parameter parameter) {
 		this.command = command;
 		this.parameter = parameter;
 	}
@@ -20,11 +18,11 @@ public class Query {
 		this.command = command;
 	}
 
-	public String getParameter() {
+	public Parameter getParameter() {
 		return parameter;
 	}
 
-	public void setParameter(String parameter) {
+	public void setParameter(Parameter parameter) {
 		this.parameter = parameter;
 	}
 	

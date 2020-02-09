@@ -1,4 +1,4 @@
-package com.geektrust.meetthefamily.constant;
+package com.geektrust.meetthefamily.queryhandler;
 
 public enum Command {
 	ADD_CHILD,

@@ -36,3 +36,14 @@ Son
 Daughter
 Siblings
 ```
+
+## Assumptions
+This are the assumptions that has been taken in addition to the given assumptions.
+
+### Query assumptions
+ - no duplicates
+ - pre validated query
+ 
+### Design assumptions
+ - can add child only if spouse exist
+ - 

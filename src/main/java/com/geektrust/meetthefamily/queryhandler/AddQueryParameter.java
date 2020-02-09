@@ -1,19 +1,25 @@
-package com.geektrust.meetthefamily.model;
+package com.geektrust.meetthefamily.queryhandler;
 /**
  * @author E62H
  */
 
+import com.geektrust.meetthefamily.constant.Constant;
 import com.geektrust.meetthefamily.constant.Gender;
 
-public class AddQuery {
+public class AddQueryParameter implements Parameter {
 	private String motherName;
 	private String childName;
 	private Gender gender;
-
-	public AddQuery(String motherName, String childName, Gender gender) {
-		this.motherName = motherName;
-		this.childName = childName;
-		this.gender = gender;
+	
+	public AddQueryParameter(String stringParameter) {
+		String[] splittedQuery = query.split(Constant.QUERY_SPLIT_REGEX,Constant.QUERY_SPLIT_SIZE);
+		queryList.add(new Query(Command.valueOf(splittedQuery[Constant.COMMAND_INDEX]),splittedQuery[Constant.PARAMETER_INDEX]));
+	}
+	
+	@Override
+	public Parameter stringToParameter(String stringParameter) {
+		
+		return null;
 	}
 
 	public String getMotherName() {
@@ -39,5 +45,6 @@ public class AddQuery {
 	public void setGender(Gender gender) {
 		this.gender = gender;
 	}
-	
+
+
 }
