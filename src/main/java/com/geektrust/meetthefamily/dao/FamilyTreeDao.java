@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.util.ArrayList;
 import java.util.List;
 
+import com.geektrust.meetthefamily.constant.ErrorCode;
 import com.geektrust.meetthefamily.exception.FileException;
 
 public class FamilyTreeDao {
@@ -27,7 +28,7 @@ public class FamilyTreeDao {
 			}
 			br.close();
 		} catch (Exception exception) {
-			FileException fileException = new FileException("FILE001", "File not found.");
+			FileException fileException = new FileException(ErrorCode.FILE000);
 			throw fileException;
 		} 
 		return queries;

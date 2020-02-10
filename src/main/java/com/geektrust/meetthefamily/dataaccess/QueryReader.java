@@ -6,6 +6,7 @@ import java.io.FileReader;
 import java.util.HashSet;
 import java.util.Set;
 
+import com.geektrust.meetthefamily.constant.ErrorCode;
 import com.geektrust.meetthefamily.exception.FileException;
 import com.geektrust.meetthefamily.queryhandler.model.Query;
 
@@ -36,7 +37,7 @@ public class QueryReader {
 			}
 			br.close();
 		} catch (Exception exception) {
-			FileException fileException = new FileException("FILE001", "File not found.");
+			FileException fileException = new FileException(ErrorCode.FILE000);
 			throw fileException;
 		} 
 		return queries;

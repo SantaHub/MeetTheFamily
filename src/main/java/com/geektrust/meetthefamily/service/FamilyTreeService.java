@@ -28,10 +28,8 @@ public class FamilyTreeService {
 		return QueryReader.getQueryFromFile(filePath);
 	}
 	
-
-	
-	private static void initialize() {
-		
+	public static FamilyTree initialize(String kingName, String queenName) {
+		return new FamilyTree(kingName, queenName);
 	}
 
 	public String executeRelation(Person person, RelationShipType relation) {
