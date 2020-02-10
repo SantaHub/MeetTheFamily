@@ -3,48 +3,46 @@ package com.geektrust.meetthefamily.queryhandler;
  * @author E62H
  */
 
-import com.geektrust.meetthefamily.constant.Constant;
-import com.geektrust.meetthefamily.constant.Gender;
-
 public class AddQueryParameter implements Parameter {
-	private String motherName;
-	private String childName;
-	private Gender gender;
+	public static final String ADD_SPLIT_REGEX=" ";
+	public static final Integer ADD_SPLIT_SIZE=3;
+	public static final Integer ADD_ROOT_NODE_INDEX=0;
+	public static final Integer ADD_NEW_NODE_INDEX=1;
+	public static final Integer ADD_GENDER_INDEX=2; 
+
+
+	private String rootNode;
+	private String newNode;
+	private GenderType gender;
 	
 	public AddQueryParameter(String stringParameter) {
-		String[] splittedQuery = query.split(Constant.QUERY_SPLIT_REGEX,Constant.QUERY_SPLIT_SIZE);
-		queryList.add(new Query(Command.valueOf(splittedQuery[Constant.COMMAND_INDEX]),splittedQuery[Constant.PARAMETER_INDEX]));
+		String[] splittedParameter = stringParameter.split(ADD_SPLIT_REGEX,ADD_SPLIT_SIZE);
+		this.rootNode = splittedParameter[ADD_ROOT_NODE_INDEX];
+		this.newNode = splittedParameter[ADD_NEW_NODE_INDEX];
+		this.gender = GenderType.getGenderOfValue(splittedParameter[ADD_GENDER_INDEX]);
 	}
 	
-	@Override
-	public Parameter stringToParameter(String stringParameter) {
-		
-		return null;
-	}
-
 	public String getMotherName() {
-		return motherName;
+		return rootNode;
 	}
 
 	public void setMotherName(String motherName) {
-		this.motherName = motherName;
+		this.rootNode = motherName;
 	}
 
 	public String getChildName() {
-		return childName;
+		return newNode;
 	}
 
 	public void setChildName(String childName) {
-		this.childName = childName;
+		this.newNode = childName;
 	}
 
-	public Gender getGender() {
+	public GenderType getGender() {
 		return gender;
 	}
 
-	public void setGender(Gender gender) {
+	public void setGender(GenderType gender) {
 		this.gender = gender;
 	}
-
-
 }

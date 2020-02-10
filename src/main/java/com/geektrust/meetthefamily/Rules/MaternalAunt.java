@@ -2,7 +2,7 @@ package com.geektrust.meetthefamily.Rules;
 
 import java.util.List;
 
-import com.geektrust.meetthefamily.model.Person;
+import com.geektrust.meetthefamily.FamilyTreeHandler.Person;
 
 public class MaternalAunt {
 

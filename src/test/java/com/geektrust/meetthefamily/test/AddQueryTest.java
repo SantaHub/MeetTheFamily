@@ -2,6 +2,7 @@ package com.geektrust.meetthefamily.test;
 
 import org.junit.Test;
 
+import com.geektrust.meetthefamily.queryhandler.Query;
 import com.geektrust.meetthefamily.service.FamilyTreeService;
 
 public class AddQueryTest {
@@ -9,10 +10,8 @@ public class AddQueryTest {
 	
 	@Test
 	public void testAddChild() {
-		//Read query from file
-		//Execute query
-		//Read result from file
-		//Evaluate response
+		Query query = new Query("ADD_CHILD Satya Ketu Male");
+		
 	}
 
 }

@@ -1,23 +1,23 @@
-package com.geektrust.meetthefamily.model;
+package com.geektrust.meetthefamily.FamilyTreeHandler;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import com.geektrust.meetthefamily.constant.Gender;
+import com.geektrust.meetthefamily.queryhandler.GenderType;
 
 public class Person {
 	private String name;
 	private Person mother;
 	private Person spouse;
 	private List<Person> children;
-	private Gender gender;
+	private GenderType gender;
 	
-	public Person(String name, Gender gender) {
+	public Person(String name, GenderType gender) {
 		this.name = name;
 		this.gender = gender;
 	}
 	
-	public Person(Person mother, String name, Gender gender) {
+	public Person(Person mother, String name, GenderType gender) {
 		this.setName(name);
 		this.setGender(gender);
 		this.setMother(mother);
@@ -44,7 +44,7 @@ public class Person {
 		return spouse;
 	}
 	public void setSpouse(Person spouse) {
-		if(Gender.FEMALE.equals(this.getGender())) {
+		if(GenderType.FEMALE.equals(this.getGender())) {
 				this.spouse = spouse;
 				this.getSpouse().setSpouse(this);
 				if(this.children == null) {
@@ -63,7 +63,7 @@ public class Person {
 		return hasSpouse;
 	}
 	public List<Person> getChildren() {
-		if(Gender.FEMALE.equals(this.gender)) {
+		if(GenderType.FEMALE.equals(this.gender)) {
 			return this.children;
 		} else {
 			return this.getSpouse().getChildren();
@@ -75,9 +75,9 @@ public class Person {
 	 * @return
 	 * @throws NullPointerException
 	 */
-	public List<Person> getChildren(Gender gender) {
+	public List<Person> getChildren(GenderType gender) {
 		List<Person> children = new ArrayList<Person>();
-		if(Gender.FEMALE.equals(this.gender)) {
+		if(GenderType.FEMALE.equals(this.gender)) {
 			if(this.hasChildren()) {
 				for(Person child :this.getChildren()) {
 					if( child.getGender().equals(gender))
@@ -93,7 +93,7 @@ public class Person {
 	}
 	
 	public void setChildren(List<Person> children) {
-		if(Gender.FEMALE.equals(this.gender)) {
+		if(GenderType.FEMALE.equals(this.gender)) {
 			for(Person child : children) {
 				child.setMother(this);
 			}
@@ -103,7 +103,7 @@ public class Person {
 		}
 	}
 	public void addChild(Person child) {
-		if(Gender.FEMALE.equals(this.gender)) {
+		if(GenderType.FEMALE.equals(this.gender)) {
 			child.setMother(this);
 			this.children.add(child);
 		}
@@ -116,10 +116,10 @@ public class Person {
 		}
 		return hasChildren;
 	}
-	public Gender getGender() {
+	public GenderType getGender() {
 		return gender;
 	}
-	public void setGender(Gender gender) {
+	public void setGender(GenderType gender) {
 		this.gender = gender;
 	}		
 }

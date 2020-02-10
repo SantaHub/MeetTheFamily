@@ -1,6 +1,6 @@
 package com.geektrust.meetthefamily.service;
 
-import com.geektrust.meetthefamily.model.Person;
+import com.geektrust.meetthefamily.FamilyTreeHandler.Person;
 
 public class FamilyTree {
 

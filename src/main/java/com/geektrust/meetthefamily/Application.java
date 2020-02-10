@@ -1,6 +1,6 @@
 package com.geektrust.meetthefamily;
 
-
+import com.geektrust.meetthefamily.exception.GeneralException;
 
 public class Application {
 

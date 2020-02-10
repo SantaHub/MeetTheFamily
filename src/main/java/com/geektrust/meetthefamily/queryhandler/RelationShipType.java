@@ -1,6 +1,6 @@
-package com.geektrust.meetthefamily.constant;
+package com.geektrust.meetthefamily.queryhandler;
 
-public enum Relation {
+public enum RelationShipType {
 	PATERNAL_UNCLE("Paternal-Uncle"),
 	MATERNAL_UNCLE("Maternal-Uncle"),
 	PATERNAL_AUNT("Paternal-Aunt"),
@@ -13,16 +13,17 @@ public enum Relation {
 	
 	public final String value;
 	
-	private Relation(String value) {
+	private RelationShipType(String value) {
 		this.value = value;
 	}
 	
-	public String getValue(Relation relation) {
-		return relation.value;
+	private String getValue() {
+		return this.value;
 	}
-	public static Relation valueEquals(String value) {
-		for(Relation relation : Relation.values()) {
-			if(relation.getValue(relation).equalsIgnoreCase(value)) {
+	
+	public static RelationShipType getTypeOfValue(String value) {
+		for(RelationShipType relation : RelationShipType.values()) {
+			if(relation.getValue().equalsIgnoreCase(value)) {
 				return relation;
 			}
 		}

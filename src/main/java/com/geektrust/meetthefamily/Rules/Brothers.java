@@ -6,14 +6,14 @@ package com.geektrust.meetthefamily.Rules;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.geektrust.meetthefamily.constant.Gender;
-import com.geektrust.meetthefamily.model.Person;
+import com.geektrust.meetthefamily.FamilyTreeHandler.Person;
+import com.geektrust.meetthefamily.queryhandler.GenderType;
 
 public class Brothers {
 	public static List<Person> execute(Person person) {
 		List<Person> brothers = new ArrayList<Person>();
 		for(Person sib: Sibling.execute(person)) {
-			if(Gender.MALE.equals(sib.getGender())) {
+			if(GenderType.MALE.equals(sib.getGender())) {
 				brothers.add(sib);
 			}
 		}
