@@ -5,6 +5,7 @@ import java.util.Set;
 import java.util.stream.Collectors;
 
 import com.geektrust.meetthefamily.FamilyTreeHandler.Constant;
+import com.geektrust.meetthefamily.FamilyTreeHandler.FamilyTree;
 import com.geektrust.meetthefamily.FamilyTreeHandler.Person;
 import com.geektrust.meetthefamily.Rules.BrotherInLaw;
 import com.geektrust.meetthefamily.Rules.Daughter;
@@ -27,12 +28,6 @@ public class FamilyTreeService {
 		return QueryReader.getQueryFromFile(filePath);
 	}
 	
-	public static Set<Query> executeQuery(Set<Query> queries) {
-		if(root == null) {
-			initialize()
-		}
-		return null;
-	}
 
 	
 	private static void initialize() {

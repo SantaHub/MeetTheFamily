@@ -1,7 +1,6 @@
 package com.geektrust.meetthefamily.queryhandler.model;
 
-import com.geektrust.meetthefamily.queryhandler.Command;
-import com.geektrust.meetthefamily.queryhandler.ParameterFactory;
+import com.geektrust.meetthefamily.queryhandler.CommandType;
 
 public class Query {
 	public static final String QUERY_SPLIT_REGEX=" ";
@@ -17,12 +16,12 @@ public class Query {
 	
 	public Query(String stringQuery) {
 		String[] splittedQuery = stringQuery.split(QUERY_SPLIT_REGEX,QUERY_SPLIT_SIZE);
-		this.command = Command.valueOf(splittedQuery[COMMAND_INDEX]);
-		this.parameter = ParameterFactory.getParameter(this.command, splittedQuery[PARAMETER_INDEX]);	
+		this.commandType = CommandType.valueOf(splittedQuery[COMMAND_INDEX]);
+		this.parameter = QueryFactory.getParameter(this.commandType, splittedQuery[PARAMETER_INDEX]);	
 	}
 	
-	public Command getCommand() {
-		return command;
+	public CommandType getCommand() {
+		return commandType;
 	}
 
 	public Parameter getParameter() {
