@@ -4,6 +4,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
+import com.geektrust.meetthefamily.FamilyTreeHandler.Constant;
 import com.geektrust.meetthefamily.FamilyTreeHandler.Person;
 import com.geektrust.meetthefamily.Rules.BrotherInLaw;
 import com.geektrust.meetthefamily.Rules.Daughter;
@@ -14,25 +15,30 @@ import com.geektrust.meetthefamily.Rules.PaternalUncle;
 import com.geektrust.meetthefamily.Rules.Sibling;
 import com.geektrust.meetthefamily.Rules.SisterInLaw;
 import com.geektrust.meetthefamily.Rules.Son;
-import com.geektrust.meetthefamily.constant.Constant;
+import com.geektrust.meetthefamily.constant.GenderType;
 import com.geektrust.meetthefamily.dataaccess.QueryReader;
-import com.geektrust.meetthefamily.queryhandler.GenderType;
-import com.geektrust.meetthefamily.queryhandler.Query;
 import com.geektrust.meetthefamily.queryhandler.RelationShipType;
+import com.geektrust.meetthefamily.queryhandler.model.Query;
 
 public class FamilyTreeService {
-	static Person root;
-	
+	FamilyTree familyTree;
+
 	public static Set<Query> getQueriesFromFile(String filePath){
 		return QueryReader.getQueryFromFile(filePath);
 	}
 	
 	public static Set<Query> executeQuery(Set<Query> queries) {
-		
+		if(root == null) {
+			initialize()
+		}
 		return null;
 	}
 
 	
+	private static void initialize() {
+		
+	}
+
 	public String executeRelation(Person person, RelationShipType relation) {
 		String response = null;
 		switch(relation) {

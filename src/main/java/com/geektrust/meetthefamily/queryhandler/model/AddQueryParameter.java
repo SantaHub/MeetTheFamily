@@ -1,4 +1,7 @@
-package com.geektrust.meetthefamily.queryhandler;
+package com.geektrust.meetthefamily.queryhandler.model;
+
+import com.geektrust.meetthefamily.constant.GenderType;
+
 /**
  * @author E62H
  */

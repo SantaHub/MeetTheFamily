@@ -1,5 +1,9 @@
 package com.geektrust.meetthefamily.queryhandler;
 
+import com.geektrust.meetthefamily.queryhandler.model.AddQueryParameter;
+import com.geektrust.meetthefamily.queryhandler.model.Parameter;
+import com.geektrust.meetthefamily.queryhandler.model.RelationQueryParameter;
+
 //Maps to correct parameter classes based on the command
 public class ParameterFactory {
 

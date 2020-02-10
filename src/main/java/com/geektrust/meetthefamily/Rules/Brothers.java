@@ -7,7 +7,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import com.geektrust.meetthefamily.FamilyTreeHandler.Person;
-import com.geektrust.meetthefamily.queryhandler.GenderType;
+import com.geektrust.meetthefamily.constant.GenderType;
 
 public class Brothers {
 	public static List<Person> execute(Person person) {

@@ -1,4 +1,6 @@
-package com.geektrust.meetthefamily.queryhandler;
+package com.geektrust.meetthefamily.queryhandler.model;
+
+import com.geektrust.meetthefamily.queryhandler.RelationShipType;
 
 public class RelationQueryParameter implements Parameter {
 	public static final String RELATIONSHIP_SPLIT_REGEX=" ";

@@ -3,7 +3,7 @@ package com.geektrust.meetthefamily.FamilyTreeHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-import com.geektrust.meetthefamily.queryhandler.GenderType;
+import com.geektrust.meetthefamily.constant.GenderType;
 
 public class Person {
 	private String name;

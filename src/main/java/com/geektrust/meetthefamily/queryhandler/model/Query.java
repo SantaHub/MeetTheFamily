@@ -1,4 +1,7 @@
-package com.geektrust.meetthefamily.queryhandler;
+package com.geektrust.meetthefamily.queryhandler.model;
+
+import com.geektrust.meetthefamily.queryhandler.Command;
+import com.geektrust.meetthefamily.queryhandler.ParameterFactory;
 
 public class Query {
 	public static final String QUERY_SPLIT_REGEX=" ";

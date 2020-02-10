@@ -1,7 +1,7 @@
 package com.geektrust.meetthefamily.initializer;
 
 import com.geektrust.meetthefamily.FamilyTreeHandler.Person;
-import com.geektrust.meetthefamily.queryhandler.GenderType;
+import com.geektrust.meetthefamily.constant.GenderType;
 
 public class Initializer {
 	private static Person queen;

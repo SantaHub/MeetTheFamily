@@ -7,7 +7,7 @@ import java.util.HashSet;
 import java.util.Set;
 
 import com.geektrust.meetthefamily.exception.FileException;
-import com.geektrust.meetthefamily.queryhandler.Query;
+import com.geektrust.meetthefamily.queryhandler.model.Query;
 
 public class QueryReader {
 

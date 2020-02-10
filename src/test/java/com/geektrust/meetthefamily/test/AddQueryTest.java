@@ -2,7 +2,7 @@ package com.geektrust.meetthefamily.test;
 
 import org.junit.Test;
 
-import com.geektrust.meetthefamily.queryhandler.Query;
+import com.geektrust.meetthefamily.queryhandler.model.Query;
 import com.geektrust.meetthefamily.service.FamilyTreeService;
 
 public class AddQueryTest {

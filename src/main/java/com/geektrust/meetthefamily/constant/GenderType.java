@@ -1,4 +1,4 @@
-package com.geektrust.meetthefamily.queryhandler;
+package com.geektrust.meetthefamily.constant;
 
 public enum GenderType {
 	MALE("Male"),
